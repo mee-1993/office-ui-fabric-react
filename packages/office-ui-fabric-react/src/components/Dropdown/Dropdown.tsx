@@ -296,8 +296,8 @@ export class Dropdown extends BaseComponent<IDropdownInternalProps, IDropdownSta
     if (index > 0) {
       return <div
         role='separator'
-        key={ key }
-        className={ css('ms-Dropdown-divider', styles.divider) } />;
+        key={key}
+        className={css('ms-Dropdown-divider', styles.divider, item.className)} />;
     }
     return null;
   }
@@ -305,7 +305,7 @@ export class Dropdown extends BaseComponent<IDropdownInternalProps, IDropdownSta
   private _renderHeader(item: IDropdownOption): JSX.Element {
     let { onRenderOption = this._onRenderOption } = this.props;
     return (
-      <div className={ css('ms-Dropdown-header', styles.header) }>
+        <div className={css('ms-Dropdown-header', styles.header, item.className)}>
         { onRenderOption(item, this._onRenderOption) }
       </div>);
   }
@@ -326,7 +326,7 @@ export class Dropdown extends BaseComponent<IDropdownInternalProps, IDropdownSta
           'ms-Dropdown-item', styles.item, {
             ['is-selected ' + styles.itemIsSelected]: this.state.selectedIndex === item.index,
             ['is-disabled ' + styles.itemIsDisabled]: this.props.disabled === true
-          }
+          }, item.className
         ) }
         onClick={ () => this._onItemClick(item.index) }
         role='option'

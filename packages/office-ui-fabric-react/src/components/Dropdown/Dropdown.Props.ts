@@ -147,6 +147,9 @@ export interface IDropdownOption {
   /** If option is selected. */
   selected?: boolean;
 
+  /** Optional classname for dropdown option */
+  className?: string
+
   /**
    * Deprecated at v.65.1, use 'selected' instead.
    * @deprecated
